@@ -1,9 +1,9 @@
 package Pages.Other.Facebook;
 
-import Pages.Commands;
+import Pages.Commands1;
 import org.openqa.selenium.By;
 
-public class SignUpPage extends Commands {
+public class SignUpPage extends Commands1 {
 
     // Locator Variables
     By monthDdLocator = By.id("month");

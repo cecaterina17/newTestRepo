@@ -1,13 +1,13 @@
 package Pages.Other.Darksky;
 
 import Helper.Misc;
-import Pages.Commands;
+import Pages.Commands1;
 import org.openqa.selenium.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LandingPage extends Commands {
+public class LandingPage extends Commands1 {
 
     // Locator Variables
     // Time Machine:

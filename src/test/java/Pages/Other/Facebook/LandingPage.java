@@ -1,13 +1,13 @@
 package Pages.Other.Facebook;
 
 import Helper.Misc;
-import Pages.Commands;
+import Pages.Commands1;
 import Web.MyDriver;
 import org.openqa.selenium.By;
 
 import java.util.Set;
 
-public class LandingPage extends Commands {
+public class LandingPage extends Commands1 {
 
     // Locator Variables
     // Login Form:

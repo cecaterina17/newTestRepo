@@ -1,10 +1,10 @@
 package Pages.Other.Practice;
 
 import Helper.Misc;
-import Pages.Commands;
+import Pages.Commands1;
 import org.openqa.selenium.By;
 
-public class JqueryDragDropPage extends Commands {
+public class JqueryDragDropPage extends Commands1 {
 
     // Locator variables
     By frameLocator = By.xpath("//iframe[@class='demo-frame']");

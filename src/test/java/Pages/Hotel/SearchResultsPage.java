@@ -1,7 +1,7 @@
 package Pages.Hotel;
 
 import Helper.Misc;
-import Pages.Commands;
+import Pages.Commands1;
 import Web.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class SearchResultsPage extends Commands {
+public class SearchResultsPage extends Commands1 {
 
     // Locator variables
     By popularCheckboxLocator = By.xpath("//*[@name='popularFilter']");
@@ -21,6 +21,8 @@ public class SearchResultsPage extends Commands {
     By searchPropertyTypeFieldLocator = By.xpath("//input[@placeholder='e.g. Best Western']");
     By noMatchesErrorLocator = By.xpath("//*[@data-stid='section-results']//h3[text()='No matches']");
     By getErrorFilterLocator2 = By.xpath("//*[@aria-label='Remove PPPPPP']");
+    By shareFeedbackTextLocator = By.xpath("//*[@data-stid='voice-of-the-customer']/span");
+    By shareFeedbackBtnLocator = By.xpath("//*[@data-stid='voice-of-the-customer']/a");
 
 
     // Methods
@@ -36,12 +38,12 @@ public class SearchResultsPage extends Commands {
 
     public void clickSortByField() {
         click(sortByLocator);
-        Misc.pause(2);
     }
 
     public void clickPriceSuggestion() {
+        // I need help with removing wait from here
         selectFromSuggestions(sortBySuggestionsLocator,"Price");
-        Misc.pause(8);
+        Misc.pause(5);
     }
 
     public int getLowestPrice() {
@@ -65,15 +67,12 @@ public class SearchResultsPage extends Commands {
 
     public void clickSearchByProperty() {
         click(searchPropertyFieldLocator);
-        Misc.pause(1);
     }
 
     public void typeProperty() {
         type(searchPropertyTypeFieldLocator,"PPPPPP");
-        Misc.pause(1);
         WebElement toClick = findWebElement(searchPropertyTypeFieldLocator);
         toClick.sendKeys(Keys.RETURN);
-        Misc.pause(5);
     }
 
     public boolean isNoMatchesErrorDisplayed() {
@@ -82,5 +81,18 @@ public class SearchResultsPage extends Commands {
 
     public boolean isRemovableFilterDisplayed() {
         return isElementDisplayed(getErrorFilterLocator2);
+    }
+
+    public boolean isShareFeedbackTextDisplayed() {
+        scrollToElementIntoView(shareFeedbackTextLocator);
+        return isElementDisplayed(shareFeedbackTextLocator);
+    }
+
+    public boolean isShareFeedbackBtnDisplayed() {
+        return isElementDisplayed(shareFeedbackTextLocator);
+    }
+
+    public boolean isShareFeedbackBtnEnabled() {
+        return isElementEnabled(shareFeedbackTextLocator);
     }
 }
