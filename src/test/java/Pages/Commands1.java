@@ -10,18 +10,16 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
-public class Commands {
+public class Commands1 {
 
     /**
-     * Custom methods in this framework
+     * Methods present in this class
      *
      * - finElement();
      * - findElement --> fluent wait
      * - finElements();
      *
      * - click();
-     * - click --> fluent wait
-     * - clear()
      * - sendKeys();
      * - getText();
      * - getElementAttribute();
@@ -40,9 +38,9 @@ public class Commands {
      *
      * - scroll methods
      *
-     * - select from dropdown methods
+     * - select dropdown methods
      *
-     * - Calendar method
+     * - Calendar methods
      *
      * - Alert
      *      - Switch, Accept, Decline, GetText & Type
@@ -79,19 +77,9 @@ public class Commands {
     }
 
 
-
-
     // Clicking, Typing & Get Text
     public void click(By locator) {
         findWebElement(locator).click();
-    }
-
-    public void clickWithWait(By locator) {
-        findWebElementWithWait(locator).click();
-    }
-
-    public void clearField(By locator) {
-        findWebElement(locator).clear();
     }
 
     public void type(By locator, String input) {
@@ -104,6 +92,11 @@ public class Commands {
 
     public String getElementAttribute(By locator, String attributeName) {
         return findWebElement(locator).getAttribute(attributeName);
+    }
+
+    // Clearing input field
+    public void clearField(By locator) {
+        findWebElement(locator).clear();
     }
 
 
@@ -138,23 +131,6 @@ public class Commands {
         return MyDriver.getDriver().getTitle();
     }
 
-    public void switchToSecondBrowserWindow(String parentWindowHandle) {
-        Set<String> allWindowHandles = getAllWindowHandles();
-        for (String id : allWindowHandles) {
-            if (!id.equalsIgnoreCase(parentWindowHandle)) {
-                MyDriver.getDriver().switchTo().window(id);
-            }
-        }
-    }
-
-    public void switchToOriginalWindow(String parentWindowHandle) {
-        MyDriver.getDriver().switchTo().window(parentWindowHandle);
-    }
-
-    public void closeActiveBrowserWindow() {
-        MyDriver.getDriver().close();
-    }
-
 
     // Action methods
     public void dragAndDropElement(By sourceLocator, By targetLocator) {
@@ -162,15 +138,35 @@ public class Commands {
         Actions a = new Actions(MyDriver.getDriver());
         WebElement source = findWebElement(sourceLocator);
         WebElement target = findWebElement(targetLocator);
-        a.dragAndDrop(source, target).build().perform();
+        a.dragAndDrop(source,target).build().perform();
     }
 
 
     // Scroll methods
-    public void scrollToElementIntoView(By locator) {
-        WebElement element = MyDriver.getDriver().findElement(locator);
-        JavascriptExecutor executor = (JavascriptExecutor) MyDriver.getDriver();
-        executor.executeScript("arguments[0].scrollIntoView();", element);
+    public WebElement scrollToElement(By locator) {
+        WebElement element = null;
+        for (int i = 0; i <= 15; i++) {
+            try {
+                element = findWebElement(locator); // <-- what is the action? What will cause exception ?
+                break;                             // When I use it, it finds WebElement right away, without scrolling
+            } catch (ElementClickInterceptedException | NoSuchElementException e) {
+                JavascriptExecutor js = (JavascriptExecutor) MyDriver.getDriver();
+                js.executeScript("scrollBy(0,150)");
+            }
+        }
+        return element;
+    }
+
+    public void scrollAndClickElement(By locator) {
+        for (int i = 0; i < 20; i++) {
+            try {
+                findWebElement(locator).click();
+                break;
+            } catch (NoSuchElementException | ElementClickInterceptedException e) {
+                JavascriptExecutor js = (JavascriptExecutor) MyDriver.getDriver();
+                js.executeScript("scrollBy(0,200)");
+            }
+        }
     }
 
 
@@ -197,16 +193,10 @@ public class Commands {
         }
     }
 
-    public void selectByVisibleTextInDropdown(By locator, String dataToSelect) {
+    public void selectInDropdown(By locator, String dataToSelect) {
         WebElement element = findWebElement(locator);
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(dataToSelect);
-    }
-
-    public void selectByValueInDropdown(By locator, String dataToSelect) {
-        WebElement element = findWebElement(locator);
-        Select dropdown = new Select(element);
-        dropdown.selectByValue(dataToSelect);
     }
 
 
@@ -268,4 +258,5 @@ public class Commands {
     public void switchToMainWindowFromFrame() {
         MyDriver.getDriver().switchTo().defaultContent();
     }
+
 }

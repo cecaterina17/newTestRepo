@@ -32,10 +32,6 @@ public class MyDriver {
                         caps.setCapability("platform", pReader.getOs());
                         break;
                 }
-
-//                  DesiredCapabilities caps = DesiredCapabilities.chrome();
-//                  caps.setCapability("version",pReader.getVersion());
-//                  caps.setCapability("platform",pReader.getOs());
                 try {
                     driver = new RemoteWebDriver(new URL(sauceUrl),caps);
                 } catch (MalformedURLException e) {
@@ -51,7 +47,6 @@ public class MyDriver {
         }
         driver.get(url);
     }
-
 
     public static WebDriver getDriver() {
         return driver;
