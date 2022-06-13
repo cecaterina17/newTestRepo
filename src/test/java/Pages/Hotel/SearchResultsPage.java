@@ -69,7 +69,7 @@ public class SearchResultsPage extends Commands {
         click(searchPropertyFieldLocator);
     }
 
-    public void typeProperty() {
+    public void typeProperty()
         type(searchPropertyTypeFieldLocator,"PPPPPP");
         WebElement toClick = findWebElement(searchPropertyTypeFieldLocator);
         toClick.sendKeys(Keys.RETURN);
