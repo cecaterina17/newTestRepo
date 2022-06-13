@@ -13,3 +13,4 @@ Feature: Sign In Menu Verification
     And I click sign in button
     Then I verify sign in error is displayed
     And I quit browser
+

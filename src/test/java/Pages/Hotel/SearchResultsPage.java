@@ -1,6 +1,7 @@
 package Pages.Hotel;
 
 import Helper.Misc;
+import Pages.Commands;
 import Web.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class SearchResultsPage extends Commands1 {
+public class SearchResultsPage extends Commands {
 
     // Locator variables
     By popularCheckboxLocator = By.xpath("//*[@name='popularFilter']");
@@ -58,7 +59,7 @@ public class SearchResultsPage extends Commands1 {
             String nextStar = MyDriver.getDriver().findElement(By.xpath("(//div[@class='uitk-button-toggle']/input[@name='star'])["+(i+1)+"]")).getAttribute("value");
             //System.out.println(currentStar + " is (10 points) less than " + nextStar);
             if (Integer.valueOf(currentStar) + 10 != Integer.valueOf(nextStar)) {
-                result = false;
+               result = false;
             }
         }
         return result;
