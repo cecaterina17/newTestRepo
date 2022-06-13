@@ -1,7 +1,6 @@
 package Pages.Other.Darksky;
 
 import Helper.Misc;
-import Pages.Commands1;
 import org.openqa.selenium.*;
 
 import java.text.SimpleDateFormat;

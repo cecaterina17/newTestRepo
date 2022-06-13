@@ -1,6 +1,5 @@
 package Pages.Other.Facebook;
 
-import Pages.Commands1;
 import org.openqa.selenium.By;
 
 public class SignUpPage extends Commands1 {

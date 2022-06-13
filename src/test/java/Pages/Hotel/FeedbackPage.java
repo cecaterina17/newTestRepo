@@ -1,6 +1,5 @@
 package Pages.Hotel;
 
-import Pages.Commands1;
 import org.openqa.selenium.By;
 
 public class FeedbackPage extends Commands1 {

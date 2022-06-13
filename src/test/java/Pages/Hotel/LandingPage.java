@@ -2,7 +2,6 @@ package Pages.Hotel;
 
 import Helper.DateLib;
 import Helper.Misc;
-import Pages.Commands1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

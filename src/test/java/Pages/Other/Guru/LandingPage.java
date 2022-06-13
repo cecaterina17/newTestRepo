@@ -1,6 +1,5 @@
 package Pages.Other.Guru;
 
-import Pages.Commands1;
 import org.openqa.selenium.By;
 
 public class LandingPage extends Commands1 {

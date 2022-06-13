@@ -1,7 +1,6 @@
 package Pages.Other.Practice;
 
 import Helper.Misc;
-import Pages.Commands1;
 import org.openqa.selenium.By;
 
 public class JqueryDragDropPage extends Commands1 {
