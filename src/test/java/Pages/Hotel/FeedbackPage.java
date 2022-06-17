@@ -1,9 +1,9 @@
 package Pages.Hotel;
 
-import Pages.Commands1;
+import Pages.Commands;
 import org.openqa.selenium.By;
 
-public class FeedbackPage extends Commands1 {
+public class FeedbackPage extends Commands {
 
     By allStarsLocator = By.xpath("//div[@class='radio-group']/div/input");
     By starRatingLegendLocator = By.xpath("//div[@class='radio-legend']//*");
@@ -23,6 +23,7 @@ public class FeedbackPage extends Commands1 {
     By submitBtnLocator = By.xpath("//*[@id='submit-button']");
     By emptyFormSubmissionErrorLocator = By.xpath("//*[@id='required']");
     By redDottedBorderLocator = By.xpath("//*[contains(@style,'2px dotted rgb')]");
+
 
     public void clickFormSubmitBtn() {
         scrollToElementIntoView(submitBtnLocator);

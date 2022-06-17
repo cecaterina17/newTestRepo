@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources"},
         glue = {"StepDefinition"},
-        tags = "@star",
+        tags = "@Sprint-1",
         // Due to my cucumber config, use following:
         // "and" -> TC with both tags
         // "or" -> TC with one or other tag
@@ -19,6 +19,7 @@ import org.junit.runner.RunWith;
               mvn clean test -Dcucumber.options="--tags @tag1,@tag2"
               mvn clean test -Dcucumber.options="--tags @tag1" -DrunOn=sauce
               mvn clean test -Dcucumber.options="--tags @tag1" -DrunOn=local
+
               Remember, if u forget to set browser version to latest in properties, firefox won't work on sauce labs
        */
 )

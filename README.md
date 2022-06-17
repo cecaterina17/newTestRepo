@@ -1,1 +1,2 @@
-# SeleniumJava_Framework
+# Selenium & Java Framework
+Technosoft Course - Spring 2022

@@ -2,13 +2,13 @@ package Pages.Hotel;
 
 import Helper.DateLib;
 import Helper.Misc;
-import Pages.Commands1;
+import Pages.Commands;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class LandingPage extends Commands1 {
+public class LandingPage extends Commands {
 
     // Nav link Locators
     By topMenuSignInBtnLocator = By.xpath("//nav//button[text()='Sign in']");

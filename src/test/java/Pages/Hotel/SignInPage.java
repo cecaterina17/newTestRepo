@@ -1,9 +1,9 @@
 package Pages.Hotel;
 
-import Pages.Commands1;
+import Pages.Commands;
 import org.openqa.selenium.By;
 
-public class SignInPage extends Commands1 {
+public class SignInPage extends Commands {
 
     By emailInputLocator = By.xpath("//*[@id='loginFormEmailInput']");
     By passwordInputLocator = By.xpath("//*[@id='loginFormPasswordInput']");
